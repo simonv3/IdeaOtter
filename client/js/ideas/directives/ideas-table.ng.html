@@ -1,0 +1,20 @@
+<table class="ideas">
+  <thead>
+  </thead>
+  <tbody>
+  <tr dir-paginate="idea in ideas | itemsPerPage: perPage"
+    total-items="ideasCount.count"
+    idea-table-item="idea">
+  </tr>
+  </tbody>
+</table>
+
+<div class="empty-board" ng-if="ideas.length === 0">
+<p>
+  You haven't added ideas yet, all we found was some otters!
+</p>
+<p>
+  To start adding ideas, simply click on the input field above, start typing, and click "Add Idea". You can also just press Enter.
+</p>
+<img src="otters-404.gif" alt="missing ideas otter image"/>
+</div>

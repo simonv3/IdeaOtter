@@ -1,0 +1,22 @@
+<form class="pure-form">
+  <label>Board Name</label>
+  <input type="text" ng-model="newBoard.name">
+  <!-- <label>Collaborative?
+    <input type="checkbox" ng-init="newBoard.collaborative = false" ng-model="newBoard.collaborative">
+  </label> -->
+  <!-- <label>Public?
+    <input type="checkbox" ng-init="newBoard.public = false" ng-model="newBoard.public">
+  </label> -->
+  <button ng-click="add(newBoard)" class="pure-button pure-button-primary">Create Board</button>
+</form>
+
+<table class="boards">
+  <tr dir-paginate="board in boards | itemsPerPage: perPage" total-items="boardsCount.count">
+    <td>{{board.name}}</td>
+    <td>{{board.date | fromNow}}</td>
+    <td><small>Created by {{ creator(board) | displayName }}</small></td>
+    <td class="remove" ><a ng-click="remove(board)">&times;</a></td>
+  </tr>
+</table>
+<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+

@@ -1,0 +1,48 @@
+
+$black: #3B3B3B;
+$grey: #aaaaaa;
+$pink: pink;
+$light-grey: #e7e7e7;
+$white: white;
+
+$choose-board-tab-color: darken($light-grey, 10%);
+$choose-board-tab-background: $white;
+
+$body-color: $black;
+$link-color: #FF4848;
+$header-color: $link-color;
+
+@import "ui/forms",
+        "ui/pills",
+        "ui/paginator",
+        "components/header",
+        "components/ideas",
+        "components/choose-boards",
+        "components/boards";
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $body-color;
+  font-family: Georgia, serif;
+}
+
+a {
+  color: $link-color;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}

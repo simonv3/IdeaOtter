@@ -1,0 +1,1 @@
+{"virtualbox":{"/opt/app":{"guestpath":"/opt/app","hostpath":"/Users/simon/src/ideaotter","disabled":false},"/host-dot-sandstorm":{"guestpath":"/host-dot-sandstorm","hostpath":"/Users/simon/.sandstorm","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/simon/src/ideaotter","disabled":false}}}

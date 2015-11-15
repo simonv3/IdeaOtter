@@ -1,0 +1,9 @@
+<div class="choose-boards">
+  Post to board:
+  <ul>
+    <li ng-click="selectBoard(null)" ng-class="{'selected': selectedBoard === undefined}">None</li>
+    <li ng-repeat="board in boards" ng-click="selectBoard(board)" ng-class="{'selected': board.selected}">{{ board.name }}</li>
+  </ul>
+
+  <a href="/boards" class="manage">Manage boards &raquo;</a>
+</div>

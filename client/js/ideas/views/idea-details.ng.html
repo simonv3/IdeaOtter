@@ -1,0 +1,11 @@
+<form class="pure-form">
+  <input ng-model="idea.idea" type="text">
+  <input ng-model="idea.date" type="date">
+  <label>Public?
+    <input type="checkbox" ng-model="idea.public">
+  </label>
+
+  <button ng-click="save()" class="pure-button pure-button-primary">Save</button>
+  <button ng-click="reset()" class="pure-button">Reset form</button>
+  <a href="/ideas/">Cancel</a>
+</form>

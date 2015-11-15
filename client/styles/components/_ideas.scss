@@ -1,0 +1,42 @@
+table.ideas {
+  margin: 1rem 0;
+
+  .board {
+    margin-right: .25rem;
+  }
+
+  td {
+    padding: .5rem;
+    border-bottom: 1px solid $light-grey;
+  }
+
+  td.idea {
+    width: 75%;
+
+    * {
+      vertical-align: middle;
+    }
+  }
+
+  td.remove a {
+    cursor: pointer;
+  }
+}
+
+
+.empty-board {
+  text-align: center;
+
+  p {
+    max-width: 640px;
+    margin: 1rem auto;
+  }
+
+  img {
+    margin-bottom: 2rem;
+  }
+}
+
+.idea-list-control {
+  margin: 1rem 0;
+}

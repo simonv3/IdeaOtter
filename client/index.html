@@ -1,0 +1,19 @@
+<head>
+  <base href="/">
+  <title>Idea Otter</title>
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+</head>
+
+<body>
+  <div ng-app="ideaotter">
+    <div class="header">
+
+      <div ng-if="currentUser" class="wrapper">
+        <img src="/idea_bulb.png" alt="light bulb"/>
+        <a href="/ideas">Ideas</a>
+        <a href="/boards">Boards</a>
+      </div>
+    </div>
+    <div class="content wrapper" ui-view></div>
+  </div>
+</body>

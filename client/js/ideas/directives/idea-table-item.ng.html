@@ -1,0 +1,4 @@
+<td class="idea"><small ng-show="hasBoard(idea)" class="pill board">{{ getBoard(idea).name }}</small><span>{{idea.idea}}</span></td>
+<td><small>{{ idea.date_added | fromNow }}</small></td>
+<td><small>Posted by {{ creator(idea) | displayName }}</small></td>
+<td class="remove"><a ng-click="remove(idea)">&times;</a></td>

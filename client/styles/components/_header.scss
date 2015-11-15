@@ -1,0 +1,20 @@
+.header {
+  background: $light-grey;
+  padding: .75rem;
+  margin-bottom: .75rem;
+  border-bottom: solid 1px darken($light-grey, 10%);
+
+  * {
+    vertical-align: middle;
+  }
+
+  img {
+    margin-right: .5rem;
+  }
+
+  a {
+    padding: .75rem;
+    padding-left: 0;
+    color: $header-color;
+  }
+}

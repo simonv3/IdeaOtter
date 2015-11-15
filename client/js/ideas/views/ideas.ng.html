@@ -1,0 +1,15 @@
+<div choose-boards="postIdeasTo"></div>
+
+<div add-idea="ideas"
+  class="horizontal-form"
+  post-ideas-to="postIdeasTo"></div>
+
+<div idea-list-control count="ideasCount.count" search="search" order="orderProperty"></div>
+
+<div ideas-table="ideas"
+  page="page" per-page="perPage"
+  ></div>
+
+<dir-pagination-controls
+  on-page-change="pageChanged(newPageNumber)">
+</dir-pagination-controls>
