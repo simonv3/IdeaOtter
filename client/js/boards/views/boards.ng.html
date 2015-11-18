@@ -1,21 +1,48 @@
-<form class="pure-form">
+<form class="horizontal-form">
   <label>Board Name</label>
   <input type="text" ng-model="newBoard.name">
-  <!-- <label>Collaborative?
-    <input type="checkbox" ng-init="newBoard.collaborative = false" ng-model="newBoard.collaborative">
-  </label> -->
-  <!-- <label>Public?
-    <input type="checkbox" ng-init="newBoard.public = false" ng-model="newBoard.public">
-  </label> -->
   <button ng-click="add(newBoard)" class="pure-button pure-button-primary">Create Board</button>
 </form>
 
-<table class="boards">
+<table class="boards inline-editing">
   <tr dir-paginate="board in boards | itemsPerPage: perPage" total-items="boardsCount.count">
-    <td>{{board.name}}</td>
-    <td>{{board.date | fromNow}}</td>
-    <td><small>Created by {{ creator(board) | displayName }}</small></td>
-    <td class="remove" ><a ng-click="remove(board)">&times;</a></td>
+    <td>
+      <i class="indicator"
+        ng-show="!board.editing"
+        style="background-color: {{board.color}};"></i>
+      <input
+        type="color"
+        ng-show="board.editing"
+        ng-model="board.color"/>
+    </td>
+    <td>
+      <span ng-show="!board.editing">
+        {{board.name}}
+      </span>
+      <input
+        type="text"
+        ng-show="board.editing"
+        ng-model="board.name"/>
+    </td>
+    <td>
+      <small ng-show="!board.editing">
+        {{board.date | fromNow}}
+      </small>
+      <input
+        type="date"
+        ng-show="board.editing"
+        ng-model="board.date"/>
+    </td>
+    <td>
+      <small>Created by {{ creator(board) | displayName }}</small>
+    </td>
+    <td class="edit">
+      <a ng-show="!board.editing" ng-click="edit(board)">edit</a>
+      <a ng-show="board.editing" ng-click="doneEditing(board)">save changes</a>
+    </td>
+    <td class="remove">
+      <a ng-click="remove(board)">&times;</a>
+    </td>
   </tr>
 </table>
 <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>

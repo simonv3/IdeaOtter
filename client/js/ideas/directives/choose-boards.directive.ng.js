@@ -6,15 +6,15 @@ angular.module('ideaotter')
         selectedBoard: '=chooseBoards',
       },
       link: function ($scope, $element, $attrs, ideasTableCtrl) {
-        console.log($scope.selectedBoard);
+
         $q.all([
           $scope.$meteorSubscribe('boards')
           ]).then(function(data) {
             $scope.boards = $meteor.collection(Boards);
-            $scope.boards.forEach(function(board) {
-            if (board.selected)
-                $scope.selectedBoard = board._id;
-            });
+            $scope.boards.forEach(function(board, idx) {
+              if (board.selected)
+                  $scope.selectedBoard = board._id;
+              });
           });
 
         $scope.selectBoard = function(board) {

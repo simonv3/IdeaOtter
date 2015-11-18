@@ -1,3 +1,11 @@
 .boards {
   margin-top: 1rem;
+
+  input[type=color] {
+    border: 2px $light-grey;
+    background-color: transparent;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+  }
 }

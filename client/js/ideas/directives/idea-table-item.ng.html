@@ -1,4 +1,17 @@
-<td class="idea"><small ng-show="hasBoard(idea)" class="pill board">{{ getBoard(idea).name }}</small><span>{{idea.idea}}</span></td>
-<td><small>{{ idea.date_added | fromNow }}</small></td>
-<td><small>Posted by {{ creator(idea) | displayName }}</small></td>
-<td class="remove"><a ng-click="remove(idea)">&times;</a></td>
+<td>
+  <small ng-show="hasBoard(idea)">
+    <i class="indicator" style="background-color: {{getBoard(idea).color}};"></i>
+  </small>
+</td>
+<td class="idea">
+  <span>{{idea.idea}}</span>
+</td>
+<td>
+  <small>{{ idea.date_added | fromNow }}</small>
+</td>
+<td>
+  <small>Posted by {{ creator(idea) | displayName }}</small>
+</td>
+<td class="remove">
+  <a ng-click="remove(idea)">&times;</a>
+</td>

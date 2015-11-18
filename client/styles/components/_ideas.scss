@@ -1,25 +1,13 @@
 table.ideas {
-  margin: 1rem 0;
-
   .board {
     margin-right: .25rem;
   }
 
-  td {
-    padding: .5rem;
-    border-bottom: 1px solid $light-grey;
-  }
-
   td.idea {
-    width: 75%;
-
+    width: 70%;
     * {
       vertical-align: middle;
     }
-  }
-
-  td.remove a {
-    cursor: pointer;
   }
 }
 

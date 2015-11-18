@@ -9,6 +9,10 @@
   </tbody>
 </table>
 
+<dir-pagination-controls
+  on-page-change="pageChanged(newPageNumber)">
+</dir-pagination-controls>
+
 <div class="empty-board" ng-if="ideas.length === 0">
 <p>
   You haven't added ideas yet, all we found was some otters!

@@ -13,7 +13,9 @@ $link-color: #FF4848;
 $header-color: $link-color;
 
 @import "ui/forms",
+        "ui/inline-table-form",
         "ui/pills",
+        "ui/tables",
         "ui/paginator",
         "components/header",
         "components/ideas",
@@ -35,11 +37,7 @@ body {
 
 a {
   color: $link-color;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
+  cursor: pointer;
 }
 
 .wrapper {
