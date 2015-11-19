@@ -1,26 +1,26 @@
 Ideas = new Mongo.Collection("ideas");
 
-Ideas.allow({
-  insert: function (userId, idea) {
-    if (userId) {
-      return userId && idea.owner === userId;
-    } else {
-      return true;
-    }
-  },
-  update: function (userId, idea, fields, modifier) {
-    if (userId !== idea.owner)
-      return false;
+// Ideas.allow({
+//   insert: function (userId, idea) {
+//     if (userId) {
+//       return userId && idea.owner === userId;
+//     } else {
+//       return true;
+//     }
+//   },
+//   update: function (userId, idea, fields, modifier) {
+//     if (userId !== idea.owner)
+//       return false;
 
-    return true;
-  },
-  remove: function (userId, idea) {
-    if (userId !== idea.owner)
-      return false;
+//     return true;
+//   },
+//   remove: function (userId, idea) {
+//     if (userId !== idea.owner)
+//       return false;
 
-    return true;
-  }
-});
+//     return true;
+//   }
+// });
 
 // TODO: this isn't working because Angular is spitting out an $apply
 // is already in progress.
