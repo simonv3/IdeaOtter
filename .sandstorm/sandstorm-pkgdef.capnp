@@ -19,9 +19,9 @@ const pkgdef :Spk.PackageDefinition = (
 
     appTitle = (defaultText = "Idea Otter"),
 
-    appVersion = 9,  # Increment this for every release.
+    appVersion = 10,  # Increment this for every release.
 
-    appMarketingVersion = (defaultText = "1.1.0"),
+    appMarketingVersion = (defaultText = "1.2.0"),
     # Human-readable representation of appVersion. Should match the way you
     # identify versions of your app in documentation and marketing.
 
@@ -57,7 +57,7 @@ const pkgdef :Spk.PackageDefinition = (
       website = "http://ideaotter.com",
       # This should be the app's main website url.
 
-      codeUrl = "http://github.com/simonv3/IdeaOtter",
+      codeUrl = "https://github.com/simonv3/IdeaOtter",
       # URL of the app's source code repository, e.g. a GitHub URL.
       # Required if you specify a license requiring redistributing code, but optional otherwise.
 
@@ -110,14 +110,8 @@ const pkgdef :Spk.PackageDefinition = (
       # Where `<key-id>` is a PGP key ID or email address associated with the key.
 
       description = (defaultText = embed "../meta/description.md"),
-      # The app's description description in Github-flavored Markdown format, to be displayed e.g.
-      # in an app store. Note that the Markdown is not permitted to contain HTML nor image tags (but
-      # you can include a list of screenshots separately).
 
       shortDescription = (defaultText = "Ideation Tracking"),
-      # A very short (one-to-three words) description of what the app does. For example,
-      # "Document editor", or "Notetaking", or "Email client". This will be displayed under the app
-      # title in the grid view in the app market.
 
       screenshots = [
         # Screenshots to use for marketing purposes.  Examples below.
@@ -127,7 +121,7 @@ const pkgdef :Spk.PackageDefinition = (
         #(width = 746, height = 795, jpeg = embed "path/to/screenshot-1.jpeg"),
         #(width = 640, height = 480, png = embed "path/to/screenshot-2.png"),
       ],
-      #changeLog = (defaultText = embed "path/to/sandstorm-specific/changelog.md"),
+      changeLog = (defaultText = embed "../meta/changelog.md"),
       # Documents the history of changes in Github-flavored markdown format (with the same restrictions
       # as govern `description`). We recommend formatting this with an H1 heading for each version
       # followed by a bullet list of changes.
