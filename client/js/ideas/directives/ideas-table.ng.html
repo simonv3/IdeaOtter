@@ -4,7 +4,10 @@
   <tbody>
   <tr dir-paginate="idea in ideas | itemsPerPage: perPage"
     total-items="ideasCount.count"
-    idea-table-item="idea">
+    idea-table-item="idea"
+    ideas="ideas"
+    class="horizontal-form"
+    ng-class="{'editing': idea.editing}">
   </tr>
   </tbody>
 </table>

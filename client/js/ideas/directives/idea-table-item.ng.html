@@ -1,17 +1,30 @@
-<td>
-  <small ng-show="hasBoard(idea)">
-    <i class="indicator" style="background-color: {{getBoard(idea).color}};"></i>
+<td class="board">
+  <small ng-show="hasBoard(idea) && !idea.editing">
+    <i class="indicator"
+      style="background-color: {{getBoard(idea).color}};"></i>
   </small>
+  <select
+    ng-show="idea.editing"
+    ng-options="board._id as board.name for board in boards"
+    ng-model="idea.board"></select>
 </td>
 <td class="idea">
-  <span>{{idea.idea}}</span>
+  <span ng-show="!idea.editing">{{idea.idea}}</span>
+  <textarea
+    type="text"
+    ng-show="idea.editing"
+    ng-model="idea.idea" required expand></textarea>
 </td>
-<td>
+<td class="time-ago">
   <small>{{ idea.date_added | fromNow }}</small>
 </td>
-<td>
+<td class="author">
   <small>Posted by {{ creator(idea) | displayName }}</small>
 </td>
+<td class="edit">
+  <a ng-show="!idea.editing" ng-click="edit(idea)"><i class="icon-pencil"></i></a>
+  <a ng-show="idea.editing" ng-click="doneEditing(idea)"><i class="icon-check"></i></a>
+</td>
 <td class="remove">
-  <a ng-click="remove(idea)">&times;</a>
+  <a ng-click="remove(idea)"><i class="icon-trash"></i></a>
 </td>

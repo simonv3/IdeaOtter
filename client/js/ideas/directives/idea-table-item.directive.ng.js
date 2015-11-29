@@ -5,10 +5,26 @@ angular.module('ideaotter')
       require: '^ideasTable',
       scope: {
         idea: '=ideaTableItem',
+        ideas: '='
       },
       link: function ($scope, $element, $attrs, ideasTableCtrl) {
         $scope.creator = $rootScope.creator;
         $scope.remove = ideasTableCtrl.remove;
+
+        $scope.boards = Boards.find({}).fetch();
+
+        $scope.edit = function(editingIdea) {
+          $scope.ideas.forEach(function(idea) {
+            idea.editing = false;
+          });
+          $scope.ideas.save();
+          editingIdea.editing = true;
+        };
+
+        $scope.doneEditing = function(editingIdea) {
+          editingIdea.editing = false;
+          $scope.ideas.save();
+        };
 
         $scope.getBoardById = function(boardId){
           return Boards.findOne(boardId);

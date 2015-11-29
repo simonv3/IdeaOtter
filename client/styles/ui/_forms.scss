@@ -10,24 +10,26 @@
     vertical-align: middle;
   }
 
-  label + input,
-  label + textarea {
-    padding: .25rem;
-    border: 1px solid $light-grey;
+  input,
+  textarea {
     height: 1.5rem;
-    margin-left: 1rem;
     min-width: 50%;
-    margin-right: 1rem;
-    transition: .5s height;
-  }
-
-  label + textarea.grow {
-    height: 6rem;
   }
 
   button {
     text-align: right;
   }
+}
+
+textarea {
+  padding: .25rem;
+  border: 1px solid $light-grey;
+  transition: .5s height;
+}
+
+textarea.grow,
+.horizontal-form textarea.grow {
+  height: 6rem;
 }
 
 button {

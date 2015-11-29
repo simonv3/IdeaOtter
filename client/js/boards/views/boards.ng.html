@@ -25,13 +25,7 @@
         ng-model="board.name"/>
     </td>
     <td>
-      <small ng-show="!board.editing">
-        {{board.date | fromNow}}
-      </small>
-      <input
-        type="date"
-        ng-show="board.editing"
-        ng-model="board.date"/>
+      {{board.date | fromNow}}
     </td>
     <td>
       <small>Created by {{ creator(board) | displayName }}</small>

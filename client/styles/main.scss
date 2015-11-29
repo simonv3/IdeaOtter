@@ -3,7 +3,7 @@ $black: #3B3B3B;
 $grey: #aaaaaa;
 $pink: pink;
 $light-grey: #e7e7e7;
-$white: white;
+$white: #ffffff;
 
 $choose-board-tab-color: darken($light-grey, 10%);
 $choose-board-tab-background: $white;
@@ -12,7 +12,8 @@ $body-color: $black;
 $link-color: #FF4848;
 $header-color: $link-color;
 
-@import "ui/forms",
+@import "fonts/fonts",
+        "ui/forms",
         "ui/inline-table-form",
         "ui/pills",
         "ui/tables",
