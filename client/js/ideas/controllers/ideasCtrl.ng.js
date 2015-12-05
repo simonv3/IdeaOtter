@@ -2,23 +2,25 @@ angular.module('ideaotter').controller('IdeasCtrl',
   function($scope, $q, $rootScope, $meteor){
 
     $scope.page = 1;
-    // $scope.perPage = 10;
+    $scope.perPage = 40;
     $scope.sort = { date_added: -1 };
 
     $meteor.autorun($scope, function() {
       $scope.$meteorSubscribe('ideas', {
-        // limit: parseInt($scope.perPage),
-        // skip: parseInt(($scope.page - 1) * $scope.perPage),
-        sort: $scope.sort,
+        limit: parseInt($scope.getReactively('perPage')),
+        skip: parseInt(($scope.getReactively('page') - 1) * $scope.getReactively('perPage')),
+        sort: $scope.getReactively('sort'),
       }, $scope.getReactively('search')).then(function(){
         $scope.ideas = $meteor.collection(function() {
           return Ideas.find({}, {
-            sort: $scope.sort
+            sort: $scope.getReactively('sort'),
+            limit: parseInt($scope.getReactively('perPage')),
+            skip: parseInt(($scope.getReactively('page') - 1) * $scope.getReactively('perPage')),
           });
         }, false);
         $scope.ideasCount = $meteor.object(Counts ,'numberOfIdeas', false);
         // Temp hack!
-        $scope.perPage = $scope.ideasCount;
+        // $scope.perPage = $scope.ideasCount;
       });
     });
 
@@ -32,6 +34,7 @@ angular.module('ideaotter').controller('IdeasCtrl',
     // });
 
     $scope.pageChanged = function(newPage) {
+      console.log('new page', newPage);
       $scope.page = newPage;
     };
 
