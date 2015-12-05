@@ -1,7 +1,16 @@
-<div class="idea-list-control">
-  <label>Search {{count}} ideas: </label><input type="search" ng-model="search" placeholder="Search">
+<form name="ideaListControlForm" class="idea-list-control">
+  <div class="filter">
+    Filter:
+
+    <select
+      ng-options="board._id as board.name for board in boards" ng-model="boardFilter">
+    </select>
+  </div>
+  <div class="search">
+    <label>Search {{count}} ideas: </label><input type="search" ng-model="search" placeholder="Search"/>
   <!-- <select ng-model="order">
     <option value="1">Ascending</option>
     <option value="-1">Descending</option>
   </select> -->
-</div>
+  </div>
+</form>

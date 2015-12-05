@@ -2,25 +2,31 @@ angular.module('ideaotter').controller('IdeasCtrl',
   function($scope, $q, $rootScope, $meteor){
 
     $scope.page = 1;
-    $scope.perPage = 40;
+    $scope.perPage = 20;
     $scope.sort = { date_added: -1 };
 
     $meteor.autorun($scope, function() {
-      $scope.$meteorSubscribe('ideas', {
+      var publisherArguments = {
         limit: parseInt($scope.getReactively('perPage')),
         skip: parseInt(($scope.getReactively('page') - 1) * $scope.getReactively('perPage')),
         sort: $scope.getReactively('sort'),
-      }, $scope.getReactively('search')).then(function(){
-        $scope.ideas = $meteor.collection(function() {
-          return Ideas.find({}, {
-            sort: $scope.getReactively('sort'),
-            limit: parseInt($scope.getReactively('perPage')),
-            skip: parseInt(($scope.getReactively('page') - 1) * $scope.getReactively('perPage')),
-          });
-        }, false);
+      };
+
+      $scope.$meteorSubscribe(
+        'ideas',
+        publisherArguments,
+        $scope.getReactively('search'),
+        $scope.getReactively('boardFilter')
+      ).then(function(){
+        var filter = {
+          'idea' : { '$regex' : '.*' + ($scope.search !== undefined ? $scope.search : '') + '.*', '$options' : 'i' },
+        };
+        if ($scope.boardFilter !== null && $scope.boardFilter !== undefined)
+          filter.board = $scope.boardFilter;
+
+        $scope.ideas = Ideas.find(filter, publisherArguments).fetch()
+
         $scope.ideasCount = $meteor.object(Counts ,'numberOfIdeas', false);
-        // Temp hack!
-        // $scope.perPage = $scope.ideasCount;
       });
     });
 

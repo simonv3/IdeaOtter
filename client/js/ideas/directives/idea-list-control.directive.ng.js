@@ -1,24 +1,21 @@
 angular.module('ideaotter')
-  .directive('ideaListControl', function ($state, $rootScope) {
+  .directive('ideaListControl', function ($state, $rootScope, $q, $meteor) {
     return {
       restrict: 'A',
       scope: {
         search: '=',
         order: '=',
-        count: '='
+        count: '=',
+        boardFilter: '='
       },
       link: function ($scope) {
-        $scope.add = function(idea){
-          if ($rootScope.currentUser) {
 
-            idea.owner = $rootScope.currentUser._id;
-          }
-          $scope.ideas.save(idea).then(function(success) {
-            $scope.newIdea={};
-          }, function(error) {
-            console.log('error', error);
+        $q.all([
+          $scope.$meteorSubscribe('boards')
+          ]).then(function(data) {
+            $scope.boards = $meteor.collection(Boards, false);
           });
-        };
+
       },
       templateUrl: 'client/js/ideas/directives/idea-list-control.ng.html',
     };

@@ -1,3 +1,14 @@
+.idea-list-control {
+  div {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  div:first-child {
+    margin-left: 0;
+  }
+}
+
 .idea-list-wrapper {
   margin-top: 1.25rem;
   padding-top: 1.25rem;

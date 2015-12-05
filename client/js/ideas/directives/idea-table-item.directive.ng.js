@@ -1,5 +1,5 @@
 angular.module('ideaotter')
-  .directive('ideaTableItem', function ($state, $rootScope) {
+  .directive('ideaTableItem', function ($state, $rootScope, $q, $meteor) {
     return {
       restrict: 'A',
       require: '^ideasTable',
@@ -11,7 +11,11 @@ angular.module('ideaotter')
         $scope.creator = $rootScope.creator;
         $scope.remove = ideasTableCtrl.remove;
 
-        $scope.boards = Boards.find({}).fetch();
+        $q.all([
+          $scope.$meteorSubscribe('boards')
+          ]).then(function(data) {
+            $scope.boards = $meteor.collection(Boards, false);
+          });
 
         $scope.edit = function(editingIdea) {
           $scope.ideas.forEach(function(idea) {
