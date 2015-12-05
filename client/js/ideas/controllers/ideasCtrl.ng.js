@@ -2,7 +2,7 @@ angular.module('ideaotter').controller('IdeasCtrl',
   function($scope, $q, $rootScope, $meteor){
 
     $scope.page = 1;
-    $scope.perPage = 20;
+    $scope.perPage = 4;
     $scope.sort = { date_added: -1 };
 
     $meteor.autorun($scope, function() {
@@ -21,10 +21,15 @@ angular.module('ideaotter').controller('IdeasCtrl',
         var filter = {
           'idea' : { '$regex' : '.*' + ($scope.search !== undefined ? $scope.search : '') + '.*', '$options' : 'i' },
         };
-        if ($scope.boardFilter !== null && $scope.boardFilter !== undefined)
+        console.log($scope.boardFilter);
+        if ($scope.boardFilter !== null &&
+            $scope.boardFilter !== undefined &&
+            $scope.boardFilter !== '')
           filter.board = $scope.boardFilter;
 
-        $scope.ideas = Ideas.find(filter, publisherArguments).fetch()
+        $scope.ideas = $scope.$meteorCollection(function() {
+          return Ideas.find(filter, publisherArguments)
+        }, false);
 
         $scope.ideasCount = $meteor.object(Counts ,'numberOfIdeas', false);
       });

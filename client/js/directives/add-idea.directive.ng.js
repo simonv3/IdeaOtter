@@ -22,8 +22,16 @@ angular.module('ideaotter')
             idea.owner = Meteor.call('createTemporaryUser');
             idea.is_public = true;
           }
+          // Ideas.insert(idea, function(error, ideaId) {
+          //   if (error) console.log('error', error);
+          //
+          //   $scope.ideas.sort(function(idea1, idea2) {
+          //     return moment(idea1.date_added).isBefore(idea2.date_added);
+          //   });
+          //   $scope.newIdea={};
+          // })
           $scope.ideas.save(idea).then(function(success) {
-            $scope.ideas.sort(function(idea1, idea2) {
+             $scope.ideas.sort(function(idea1, idea2) {
               return moment(idea1.date_added).isBefore(idea2.date_added);
             });
             $scope.newIdea={};

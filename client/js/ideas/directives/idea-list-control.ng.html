@@ -2,8 +2,9 @@
   <div class="filter">
     Filter:
 
-    <select
-      ng-options="board._id as board.name for board in boards" ng-model="boardFilter">
+    <select ng-model="boardFilter">
+      <option value="">View All</option>
+      <option ng-repeat="board in boards" value="{{board._id}}">{{ board.name }}</option>
     </select>
   </div>
   <div class="search">
