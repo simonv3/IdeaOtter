@@ -1,3 +1,7 @@
+# 1.4.0 Filter Ideas by board
+
+* Added a dropdown filter that lets you filter Ideas by board.
+
 # 1.3.1 Style changes
 
 * Minor tweaks to the visual of editing ideas, better allowance for longer ideas.
