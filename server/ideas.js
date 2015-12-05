@@ -3,8 +3,6 @@ Meteor.publish('ideas', function (options, searchString, boardFilter) {
   if (searchString === null || searchString === undefined)
     searchString = '';
 
-  console.log(boardFilter);
-
   if (boardFilter === null || boardFilter === undefined)
     boardFilter = '';
 

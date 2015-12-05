@@ -2,7 +2,7 @@ angular.module('ideaotter').controller('IdeasCtrl',
   function($scope, $q, $rootScope, $meteor){
 
     $scope.page = 1;
-    $scope.perPage = 4;
+    $scope.perPage = 20;
     $scope.sort = { date_added: -1 };
 
     $meteor.autorun($scope, function() {
