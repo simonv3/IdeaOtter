@@ -4,6 +4,15 @@
   post-ideas-to="postIdeasTo"></div>
 
 <div class="idea-list-wrapper">
+  <div class="archived-control">
+    <a class="archived"
+      ng-show="hideArchived"
+      ng-click="hideArchived = false">show archived?</a>
+    <a class="archived"
+      ng-show="!hideArchived"
+      ng-click="hideArchived = true">hide archived</a>
+  </div>
+
   <div idea-list-control
     count="ideasCount.count"
     search="search"
@@ -11,7 +20,7 @@
     board-filter="boardFilter">
   </div>
 
-  <div ideas-table="ideas"
-    page="page" per-page="perPage"
+  <div
+    ideas-table="ideas"
     ></div>
 </div>

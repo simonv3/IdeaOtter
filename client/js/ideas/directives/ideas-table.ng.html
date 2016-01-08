@@ -6,8 +6,9 @@
     total-items="ideasCount.count"
     idea-table-item="idea"
     ideas="ideas"
+    ng-hide="idea.archived && hideArchived"
     class="horizontal-form"
-    ng-class="{'editing': idea.editing}">
+    ng-class="{'editing': idea.editing, 'archived': idea.archived}">
   </tr>
   </tbody>
 </table>

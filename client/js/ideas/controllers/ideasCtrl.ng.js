@@ -1,6 +1,8 @@
 angular.module('ideaotter').controller('IdeasCtrl',
   function($scope, $q, $rootScope, $meteor){
 
+    $scope.hideArchived = true;
+
     $scope.page = 1;
     $scope.perPage = 20;
     $scope.sort = { date_added: -1 };

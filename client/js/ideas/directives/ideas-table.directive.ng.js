@@ -6,7 +6,8 @@ angular.module('ideaotter')
       controller: function ($scope, $element, $attrs) {
 
         this.remove = function(idea){
-          $scope.ideas.remove(idea);
+          idea.archived = true;
+          $scope.ideas.save();
         };
       },
       templateUrl: 'client/js/ideas/directives/ideas-table.ng.html',

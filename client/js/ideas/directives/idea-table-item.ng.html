@@ -22,9 +22,9 @@
   <small>Posted by {{ creator(idea) | displayName }}</small>
 </td>
 <td class="edit">
-  <a ng-show="!idea.editing" ng-click="edit(idea)"><i class="icon-pencil"></i></a>
-  <a ng-show="idea.editing" ng-click="doneEditing(idea)"><i class="icon-check"></i></a>
+  <a ng-if="!idea.archived" ng-show="!idea.editing" ng-click="edit(idea)"><i class="icon-pencil"></i></a>
+  <a ng-if="!idea.archived" ng-show="idea.editing" ng-click="doneEditing(idea)"><i class="icon-check"></i></a>
 </td>
 <td class="remove">
-  <a ng-click="remove(idea)"><i class="icon-trash"></i></a>
+  <a ng-if="!idea.archived" ng-click="remove(idea)"><i class="icon-trash"></i></a>
 </td>

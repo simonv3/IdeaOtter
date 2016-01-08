@@ -9,6 +9,13 @@
   }
 }
 
+.archived-control {
+  float: right;
+  a {
+    color: $light-grey;
+  }
+}
+
 .idea-list-wrapper {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
@@ -60,6 +67,10 @@ table.ideas {
     .board {
       width: 6rem;
     }
+  }
+
+  .archived * {
+    opacity: .5;
   }
 }
 
