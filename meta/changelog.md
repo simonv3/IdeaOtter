@@ -1,3 +1,7 @@
+# 1.5.0 Stop Deleting Ideas
+
+* Ideas won't be deleted, instead they'll be archived. Future releases might allow you to permanently delete them.
+
 # 1.4.0 Filter Ideas by board
 
 * Added a dropdown filter that lets you filter Ideas by board.

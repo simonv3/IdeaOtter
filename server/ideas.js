@@ -7,8 +7,11 @@ Meteor.publish('ideas', function (options, searchString, boardFilter) {
     boardFilter = '';
 
   var filter = {
-    'idea' : { '$regex' : '.*' + (searchString !== undefined ? searchString : '') + '.*', '$options' : 'i' },
+    'idea' :
+      { '$regex' : '.*' + (searchString !== undefined ? searchString : '') + '.*',
+        '$options' : 'i' },
   };
+
   if (boardFilter !== '')
     filter.board = boardFilter;
 
